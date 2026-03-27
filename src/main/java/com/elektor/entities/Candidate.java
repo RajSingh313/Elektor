@@ -20,7 +20,7 @@ public class Candidate {
     @NotBlank(message = "Party name is required")
     private String party;
 
-    private int voteCoutn= 0;
+    private int voteCount= 0;
 
     @OneToMany(mappedBy = "candidate", cascade = CascadeType.ALL)
     private List<Vote> votes;
