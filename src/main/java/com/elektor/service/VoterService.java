@@ -53,8 +53,12 @@ public class VoterService {
             throw new ResourceNotFoundException("Voter with id: " + id + " not found");
         }
 
+        if (updatedVoter.getName()!=null){
         voter.setName(updatedVoter.getName());
-        voter.setEmail(updatedVoter.getEmail());
+        }
+        if (updatedVoter.getEmail()!=null) {
+            voter.setEmail(updatedVoter.getEmail());
+        }
         return voterRepository.save(voter);
 
     }

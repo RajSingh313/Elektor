@@ -1,5 +1,6 @@
 package com.elektor.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -21,5 +22,6 @@ public class Voter {
     private boolean hasVoted = false;
 
     @OneToOne(mappedBy = "voter", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Vote vote;
 }
