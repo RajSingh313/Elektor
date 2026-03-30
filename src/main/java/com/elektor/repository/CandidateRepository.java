@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface CandidateRepository  extends JpaRepository<Candidate, Long> {
     List<Candidate> findAllByOrderByVoteCountDesc();
+
+    Candidate getCandidateById(Long id);
 }
