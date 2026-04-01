@@ -11,6 +11,8 @@ import com.elektor.repository.VoterRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class VotingService {
 
@@ -26,7 +28,7 @@ public class VotingService {
 
     @Transactional
     public Vote castVote(Long voterId, Long candidateId) {
-        if(!voteRepository.existsById(voterId)) {
+        if(!voterRepository.existsById(voterId)) {
             throw new ResourceNotFoundException("Vote does not exist With Id: " + voterId);
         }
         if(!candidateRepository.existsById(candidateId)) {
@@ -51,5 +53,9 @@ public class VotingService {
 
   return vote;
 
+    }
+
+    public List<Vote> getAllVoters() {
+        return voteRepository.findAll();
     }
 }
