@@ -16,6 +16,7 @@ public class ElectionResult {
 
     @NotBlank(message = "Eelection name is required")
     private String electionName;
+    private int totalVotes;
 
     @OneToOne
     @JoinColumn(name = "winner_id")
